@@ -28,7 +28,7 @@
     
       <meta 
         property="og:url" 
-        content="http://example.com/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/index.html">
+        content="http://1053274270.github.io/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/index.html">
     
     
       <meta 
@@ -48,7 +48,7 @@
         content="2023-07-16">
       <meta 
         property="og:article:author" 
-        content="theme-kaze">
+        content="Mr. Liu">
       
         
       
@@ -161,9 +161,15 @@
   
   
   
+    
+    <link rel="prefetch" href="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js" as="script">
   
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
   <body>
     <div class="wrapper">
@@ -214,14 +220,6 @@
         class="navbar-menu-item">
         
           关于
-        
-      </a>
-    
-      <a 
-        href="/links" 
-        class="navbar-menu-item">
-        
-          友链
         
       </a>
     
@@ -276,8 +274,8 @@
     height="88"
     alt="author avatar">
 
-<p class="author-name">theme-kaze</p>
-<p class="author-description">designed by theme-kaze</p>
+<p class="author-name">Mr. Liu</p>
+<p class="author-description">摸鱼中</p>
 <div class="author-message">
   <a 
     class="author-posts-count" 
@@ -311,7 +309,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-11"><span class="toc-text">2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-5"><span class="toc-text">2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-6-6"><span class="toc-text">2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-5-14"><span class="toc-text">2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-3-4"><span class="toc-text">2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-1-22"><span class="toc-text">2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2022-11-22"><span class="toc-text">2022.11.22</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023711"><span class="toc-text"> 2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202375"><span class="toc-text"> 2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202366"><span class="toc-text"> 2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023514"><span class="toc-text"> 2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202334"><span class="toc-text"> 2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023122"><span class="toc-text"> 2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20221122"><span class="toc-text"> 2022.11.22</span></a></li></ol>
       </div>
     </article>
   
@@ -366,7 +364,7 @@
     
     
       <span class="dot"></span>
-      <span>210 字</span>
+      <span>216 字</span>
     
   </div>
   
@@ -374,38 +372,30 @@
   <div 
     id="section" 
     class="post-content">
-    <h3 id="2023-7-11"><a href="#2023-7-11" class="headerlink" title="2023.7.11"></a>2023.7.11</h3><p>三维沉降算法迁移完成</p>
-<h3 id="2023-7-5"><a href="#2023-7-5" class="headerlink" title="2023.7.5"></a>2023.7.5</h3><p>增加结果菜单中增加绘图模块，二维大体积比VORONOI界面完成</p>
-<h3 id="2023-6-6"><a href="#2023-6-6" class="headerlink" title="2023.6.6"></a>2023.6.6</h3><p>abaqus文件拖拽转化为voronoi文件，界面可直接拖拽OUTPUT文件夹</p>
-<h3 id="2023-5-14"><a href="#2023-5-14" class="headerlink" title="2023.5.14"></a>2023.5.14</h3><p>开始进行修改侧边栏，将单项radiobutton修改为下拉菜单</p>
-<h3 id="2023-3-4"><a href="#2023-3-4" class="headerlink" title="2023.3.4"></a>2023.3.4</h3><p>添加qt多线程，在子线程里运行沉降算法，提高了计算速度，点击test触发添加190个小球</p>
-<h3 id="2023-1-22"><a href="#2023-1-22" class="headerlink" title="2023.1.22"></a>2023.1.22</h3><p>1.优化添加小球逻辑<br>2.添加记时功能<br><img src="/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/20230130105229.png" alt="voronoi" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/20230130105229.png" class="lozad post-image"><br>第20次添加小球，总体积8，半径0.12407，200球，体积比为20%，耗时703ms<br>绘制200球耗时14ms<br>绘制1909球耗时134ms<br>删除中间制图时间，通过最后绘制，200球耗时623ms<br>添加190球，降低循环，耗时3024ms</p>
-<h3 id="2022-11-22"><a href="#2022-11-22" class="headerlink" title="2022.11.22"></a>2022.11.22</h3><p>最初版本</p>
+    <h3 id="2023711"><a class="markdownIt-Anchor" href="#2023711"></a> 2023.7.11</h3>
+<p>三维沉降算法迁移完成</p>
+<h3 id="202375"><a class="markdownIt-Anchor" href="#202375"></a> 2023.7.5</h3>
+<p>增加结果菜单中增加绘图模块，二维大体积比VORONOI界面完成</p>
+<h3 id="202366"><a class="markdownIt-Anchor" href="#202366"></a> 2023.6.6</h3>
+<p>abaqus文件拖拽转化为voronoi文件，界面可直接拖拽OUTPUT文件夹</p>
+<h3 id="2023514"><a class="markdownIt-Anchor" href="#2023514"></a> 2023.5.14</h3>
+<p>开始进行修改侧边栏，将单项radiobutton修改为下拉菜单</p>
+<h3 id="202334"><a class="markdownIt-Anchor" href="#202334"></a> 2023.3.4</h3>
+<p>添加qt多线程，在子线程里运行沉降算法，提高了计算速度，点击test触发添加190个小球</p>
+<h3 id="2023122"><a class="markdownIt-Anchor" href="#2023122"></a> 2023.1.22</h3>
+<p>1.优化添加小球逻辑<br>
+2.添加记时功能<br>
+<img src="/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/20230130105229.png" alt="voronoi" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/20230130105229.png" class="lozad post-image"><br>
+第20次添加小球，总体积8，半径0.12407，200球，体积比为20%，耗时703ms<br>
+绘制200球耗时14ms<br>
+绘制1909球耗时134ms<br>
+删除中间制图时间，通过最后绘制，200球耗时623ms<br>
+添加190球，降低循环，耗时3024ms</p>
+<h3 id="20221122"><a class="markdownIt-Anchor" href="#20221122"></a> 2022.11.22</h3>
+<p>最初版本</p>
 
   </div>
   <div>
-    
-      <div 
-        class="post-note note-warning copyright" 
-        style="margin-top: 42px">
-        <p>
-          <span style="font-weight: bold;">作者：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="/about">
-            theme-kaze
-          </a>
-        </p>
-        <p>
-          <span style="font-weight: bold;">文章链接：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="http://example.com/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/">
-            http://example.com/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/
-          </a>
-        </p>
-        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
-      </div>
     
   </div>
 </article>
@@ -437,7 +427,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-11"><span class="toc-text">2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-5"><span class="toc-text">2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-6-6"><span class="toc-text">2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-5-14"><span class="toc-text">2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-3-4"><span class="toc-text">2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-1-22"><span class="toc-text">2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2022-11-22"><span class="toc-text">2022.11.22</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023711"><span class="toc-text"> 2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202375"><span class="toc-text"> 2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202366"><span class="toc-text"> 2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023514"><span class="toc-text"> 2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202334"><span class="toc-text"> 2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023122"><span class="toc-text"> 2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20221122"><span class="toc-text"> 2022.11.22</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -451,7 +441,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-11"><span class="toc-text">2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-7-5"><span class="toc-text">2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-6-6"><span class="toc-text">2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-5-14"><span class="toc-text">2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-3-4"><span class="toc-text">2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023-1-22"><span class="toc-text">2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2022-11-22"><span class="toc-text">2022.11.22</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2023711"><span class="toc-text"> 2023.7.11</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202375"><span class="toc-text"> 2023.7.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202366"><span class="toc-text"> 2023.6.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023514"><span class="toc-text"> 2023.5.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202334"><span class="toc-text"> 2023.3.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2023122"><span class="toc-text"> 2023.1.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20221122"><span class="toc-text"> 2022.11.22</span></a></li></ol>
     </article>
   
   
@@ -482,7 +472,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-07-15</div>
-        <a href="/2023/07/15/first/"><div class="recent-posts-item-content">first</div></a>
+        <a href="/2023/07/15/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
       </div>
     
   </div>
@@ -590,6 +580,9 @@
   <i class="iconfont icon-search button-icon"></i>
 </a> 
      
+     
+      
+ 
      
      
       <script>

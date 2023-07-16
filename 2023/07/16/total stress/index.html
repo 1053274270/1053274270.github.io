@@ -28,7 +28,7 @@
     
       <meta 
         property="og:url" 
-        content="http://example.com/2023/07/16/total%20stress/index.html">
+        content="http://1053274270.github.io/2023/07/16/total%20stress/index.html">
     
     
       <meta 
@@ -48,7 +48,7 @@
         content="2023-07-16">
       <meta 
         property="og:article:author" 
-        content="theme-kaze">
+        content="Mr. Liu">
       
         
       
@@ -161,9 +161,15 @@
   
   
   
+    
+    <link rel="prefetch" href="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js" as="script">
   
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
   <body>
     <div class="wrapper">
@@ -214,14 +220,6 @@
         class="navbar-menu-item">
         
           关于
-        
-      </a>
-    
-      <a 
-        href="/links" 
-        class="navbar-menu-item">
-        
-          友链
         
       </a>
     
@@ -276,8 +274,8 @@
     height="88"
     alt="author avatar">
 
-<p class="author-name">theme-kaze</p>
-<p class="author-description">designed by theme-kaze</p>
+<p class="author-name">Mr. Liu</p>
+<p class="author-description">摸鱼中</p>
 <div class="author-message">
   <a 
     class="author-posts-count" 
@@ -366,7 +364,7 @@
     
     
       <span class="dot"></span>
-      <span>618 字</span>
+      <span>620 字</span>
     
   </div>
   
@@ -374,62 +372,155 @@
   <div 
     id="section" 
     class="post-content">
-    <p>1.修改结果路径，触发on_currentPatn_textChanged<br>void resultPanal::on_currentPatn_textChanged()</p>
-<p>2.getSteps(currentDir)中读取”&#x2F;STEP.dat”文件，获取totalStep与subStep，然后调用<br><strong>emit addAStep(totalStep, subStep, path);</strong></p>
-<p>3.<strong>void Model::addAResultStep(int totalStep, int subStep, QString path)</strong><br>此函数作用为，将每一步stress添加为左侧ControlPanel的TreeWidgetItem，将每一步stress添加至右侧结果栏。</p>
+    <p>1.修改结果路径，触发on_currentPatn_textChanged<br>
+void resultPanal::on_currentPatn_textChanged()</p>
+<p>2.getSteps(currentDir)中读取&quot;/STEP.dat&quot;文件，获取totalStep与subStep，然后调用<br>
+<strong>emit addAStep(totalStep, subStep, path);</strong></p>
+<p>3.<strong>void Model::addAResultStep(int totalStep, int subStep, QString path)</strong><br>
+此函数作用为，将每一步stress添加为左侧ControlPanel的TreeWidgetItem，将每一步stress添加至右侧结果栏。</p>
 <p>4.在ControlPanel类的构造函数中</p>
-<pre class="highlight"><span class="line"><span class="built_in">connect</span>(treeWidget,<span class="built_in">SIGNAL</span>(<span class="built_in">itemPressed</span>(QTreeWidgetItem*,<span class="type">int</span>)),<span class="keyword">this</span>,<span class="built_in">SLOT</span>(<span class="built_in">slotItemPressed</span>(QTreeWidgetItem*,<span class="type">int</span>)));</span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">connect</span>(treeWidget,<span class="hljs-built_in">SIGNAL</span>(<span class="hljs-built_in">itemPressed</span>(QTreeWidgetItem*,<span class="hljs-type">int</span>)),<span class="hljs-keyword">this</span>,<span class="hljs-built_in">SLOT</span>(<span class="hljs-built_in">slotItemPressed</span>(QTreeWidgetItem*,<span class="hljs-type">int</span>)));
+</code></pre>
 <p>初始化了左侧ControlPanel的TreeWidgetItem点击时间触发函数</p>
-<pre class="highlight"><span class="line"><span class="keyword">if</span>(item-&gt;<span class="built_in">text</span>(<span class="number">0</span>)==<span class="string">&quot;Stress&quot;</span>)&#123;</span><br><span class="line">        <span class="type">int</span> currentStep=item-&gt;<span class="built_in">parent</span>()-&gt;<span class="built_in">parent</span>()-&gt;<span class="built_in">indexOfChild</span>(item-&gt;<span class="built_in">parent</span>());</span><br><span class="line">        <span class="function">emit <span class="title">ShowStress</span><span class="params">(currentStep<span class="number">-1</span>)</span></span>;<span class="comment">//由于加了total应力，原来index应减1</span></span><br><span class="line">    &#125;```</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>信号槽传至下面函数</span><br><span class="line">```c++</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::ShowStresscontrolPanal</span><span class="params">(<span class="type">int</span> step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!ResultisReady) <span class="keyword">return</span>;</span><br><span class="line">    currentStep = step;</span><br><span class="line">    mystepResult[currentStep]-&gt;<span class="built_in">setShowStress</span>();</span><br><span class="line">    <span class="built_in">setStepTab</span>(mystepResult[currentStep]);</span><br><span class="line">&#125;</span><br></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-keyword">if</span>(item-&gt;<span class="hljs-built_in">text</span>(<span class="hljs-number">0</span>)==<span class="hljs-string">&quot;Stress&quot;</span>)&#123;
+        <span class="hljs-type">int</span> currentStep=item-&gt;<span class="hljs-built_in">parent</span>()-&gt;<span class="hljs-built_in">parent</span>()-&gt;<span class="hljs-built_in">indexOfChild</span>(item-&gt;<span class="hljs-built_in">parent</span>());
+        <span class="hljs-function">emit <span class="hljs-title">ShowStress</span><span class="hljs-params">(currentStep<span class="hljs-number">-1</span>)</span></span>;<span class="hljs-comment">//由于加了total应力，原来index应减1</span>
+    &#125;```
 
-
+<span class="hljs-number">5.</span>信号槽传至下面函数
+```c++
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Model::ShowStresscontrolPanal</span><span class="hljs-params">(<span class="hljs-type">int</span> step)</span>
+</span>&#123;
+    <span class="hljs-keyword">if</span>(!ResultisReady) <span class="hljs-keyword">return</span>;
+    currentStep = step;
+    mystepResult[currentStep]-&gt;<span class="hljs-built_in">setShowStress</span>();
+    <span class="hljs-built_in">setStepTab</span>(mystepResult[currentStep]);
+&#125;
+</code></pre>
 <p>6.setStepTab(mystepResult[currentStep]);</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::setStepTab</span><span class="params">(ResultStep *step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> stepTabState = <span class="built_in">stepTabExisted</span>(step);</span><br><span class="line">    <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;stepTabState:&quot;</span>&lt;&lt;stepTabState;</span><br><span class="line">    <span class="keyword">if</span>(stepTabState == <span class="number">-1</span>)&#123;</span><br><span class="line">        mystepResult[currentStep]-&gt;<span class="built_in">openOpenGL</span>();</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">addTab</span>(step-&gt;myOpenGL, step-&gt;name);</span><br><span class="line">        <span class="type">int</span> num_tab = CentralTabWidget-&gt;<span class="built_in">count</span>()<span class="number">-1</span>;</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">setCurrentIndex</span>(num_tab);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(CentralTabWidget-&gt;<span class="built_in">tabText</span>(CentralTabWidget-&gt;<span class="built_in">currentIndex</span>())!=</span><br><span class="line">             mystepResult[currentStep]-&gt;name)&#123;</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">setCurrentIndex</span>(stepTabState);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">showResult</span>();  <span class="comment">//根据当前载荷步currentStep和mystepResult[currentStep]-&gt;showType显示结果</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Model::setStepTab</span><span class="hljs-params">(ResultStep *step)</span>
+</span>&#123;
+    <span class="hljs-type">int</span> stepTabState = <span class="hljs-built_in">stepTabExisted</span>(step);
+    <span class="hljs-built_in">qDebug</span>()&lt;&lt;<span class="hljs-string">&quot;stepTabState:&quot;</span>&lt;&lt;stepTabState;
+    <span class="hljs-keyword">if</span>(stepTabState == <span class="hljs-number">-1</span>)&#123;
+        mystepResult[currentStep]-&gt;<span class="hljs-built_in">openOpenGL</span>();
+        CentralTabWidget-&gt;<span class="hljs-built_in">addTab</span>(step-&gt;myOpenGL, step-&gt;name);
+        <span class="hljs-type">int</span> num_tab = CentralTabWidget-&gt;<span class="hljs-built_in">count</span>()<span class="hljs-number">-1</span>;
+        CentralTabWidget-&gt;<span class="hljs-built_in">setCurrentIndex</span>(num_tab);
+    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(CentralTabWidget-&gt;<span class="hljs-built_in">tabText</span>(CentralTabWidget-&gt;<span class="hljs-built_in">currentIndex</span>())!=
+             mystepResult[currentStep]-&gt;name)&#123;
+        CentralTabWidget-&gt;<span class="hljs-built_in">setCurrentIndex</span>(stepTabState);
+    &#125;<span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-built_in">showResult</span>();  <span class="hljs-comment">//根据当前载荷步currentStep和mystepResult[currentStep]-&gt;showType显示结果</span>
+    &#125;
+&#125;
+</code></pre>
 <p>7.showResult();</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::showResult</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (mystepResult[currentStep]-&gt;showType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">showStress</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">showStrain</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="built_in">showDeformation</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Model::showResult</span><span class="hljs-params">()</span>
+</span>&#123;
+    <span class="hljs-keyword">switch</span> (mystepResult[currentStep]-&gt;showType) &#123;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-built_in">showStress</span>();
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-built_in">showStrain</span>();
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-built_in">showDeformation</span>();
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+    &#125;
+    <span class="hljs-keyword">return</span>;
+&#125;
+</code></pre>
 <p>8.void Model::showStress()</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::showStress</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!ResultisReady) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!actionStress_Condition-&gt;<span class="built_in">isChecked</span>())&#123;</span><br><span class="line">        actionStress_Condition-&gt;<span class="built_in">setChecked</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">openResult</span>( pProgressBar);</span><br><span class="line">        myresultPanal-&gt;<span class="built_in">setResultTab</span>(<span class="number">1</span>,mystepResult[currentStep]-&gt;deformation-&gt;IFLAG_Dimension);</span><br><span class="line">        <span class="built_in">updateResultPanal</span>();            <span class="comment">//更新后处理控制面板</span></span><br><span class="line">        <span class="comment">//outputText(&quot;111111&quot;);</span></span><br><span class="line">        <span class="comment">//mystepResult[currentStep]-&gt;myOpenGL-&gt;update();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Model::showStress</span><span class="hljs-params">()</span>
+</span>&#123;
+    <span class="hljs-keyword">if</span>(!ResultisReady) <span class="hljs-keyword">return</span>;
 
+    <span class="hljs-keyword">if</span>(!actionStress_Condition-&gt;<span class="hljs-built_in">isChecked</span>())&#123;
+        actionStress_Condition-&gt;<span class="hljs-built_in">setChecked</span>(<span class="hljs-literal">true</span>);
+    &#125;<span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-built_in">openResult</span>( pProgressBar);
+        myresultPanal-&gt;<span class="hljs-built_in">setResultTab</span>(<span class="hljs-number">1</span>,mystepResult[currentStep]-&gt;deformation-&gt;IFLAG_Dimension);
+        <span class="hljs-built_in">updateResultPanal</span>();            <span class="hljs-comment">//更新后处理控制面板</span>
+        <span class="hljs-comment">//outputText(&quot;111111&quot;);</span>
+        <span class="hljs-comment">//mystepResult[currentStep]-&gt;myOpenGL-&gt;update();</span>
+    &#125;
+&#125;
+</code></pre>
 <p>9.void Model::openResult( QProgressBar *pProgressBar)</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::openResult</span><span class="params">( QProgressBar *pProgressBar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">0</span>&lt;=currentStep &amp;&amp; currentStep&lt;mystepResult.<span class="built_in">size</span>())&#123;</span><br><span class="line">        mystepResult[currentStep]-&gt;<span class="built_in">openResult</span>( pProgressBar);</span><br><span class="line">        <span class="keyword">if</span>(mystepResult[currentStep]-&gt;deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            myresultPanal-&gt;<span class="built_in">setModelRange</span>(</span><br><span class="line">                    mystepResult[currentStep]-&gt;deformation-&gt;modelRange);</span><br><span class="line">        ShowResult = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">ResetView</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">Model::openResult</span><span class="hljs-params">( QProgressBar *pProgressBar)</span>
+</span>&#123;
+    <span class="hljs-keyword">if</span>(<span class="hljs-number">0</span>&lt;=currentStep &amp;&amp; currentStep&lt;mystepResult.<span class="hljs-built_in">size</span>())&#123;
+        mystepResult[currentStep]-&gt;<span class="hljs-built_in">openResult</span>( pProgressBar);
+        <span class="hljs-keyword">if</span>(mystepResult[currentStep]-&gt;deformation!=<span class="hljs-literal">nullptr</span>)
+            myresultPanal-&gt;<span class="hljs-built_in">setModelRange</span>(
+                    mystepResult[currentStep]-&gt;deformation-&gt;modelRange);
+        ShowResult = <span class="hljs-literal">true</span>;
+        <span class="hljs-built_in">ResetView</span>();
+    &#125;
+    <span class="hljs-keyword">return</span>;
+&#125;
+</code></pre>
 <p>10.mystepResult[currentStep]-&gt;openResult( pProgressBar);</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">ResultStep::openResult</span><span class="params">( QProgressBar *pProgressBar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QVector&lt;STRU_Member&gt; *element;</span><br><span class="line">    QVector&lt;gNode&gt; *node;</span><br><span class="line">    QVector&lt;co&gt; *deform;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (showType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        element = &amp;(deformation-&gt;element);</span><br><span class="line">        node = &amp;(deformation-&gt;allNode.node);</span><br><span class="line">        deform = &amp;(deformation-&gt;deformation);</span><br><span class="line">        <span class="keyword">if</span>(stress!=<span class="literal">nullptr</span>)</span><br><span class="line">            stress-&gt;<span class="built_in">openResult</span>(pProgressBar, element, node,</span><br><span class="line">                               deform);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        element = &amp;(deformation-&gt;element);</span><br><span class="line">        node = &amp;(deformation-&gt;allNode.node);</span><br><span class="line">        deform = &amp;(deformation-&gt;deformation);</span><br><span class="line">        <span class="keyword">if</span>(strain!=<span class="literal">nullptr</span>)</span><br><span class="line">            strain-&gt;<span class="built_in">openResult</span>(pProgressBar, element, node,</span><br><span class="line">                               deform);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(myOpenGL==<span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">    myOpenGL-&gt;modelRange.<span class="built_in">enlarge</span>(deformation-&gt;modelRange,<span class="number">0.0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="comment">/*myOpenGL-&gt;modelRange = deformation-&gt;modelRange;</span></span><br><span class="line"><span class="comment">    myOpenGL-&gt;modelRange.x.min = deformation-&gt;modelRange.x.min-</span></span><br><span class="line"><span class="comment">            (deformation-&gt;modelRange.x.max-deformation-&gt;modelRange.x.min)*0.2;</span></span><br><span class="line"><span class="comment">    myOpenGL-&gt;modelRange.y.min = deformation-&gt;modelRange.y.min;*/</span></span><br><span class="line">    myOpenGL-&gt;<span class="built_in">update</span>();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">ResultStep::openResult</span><span class="hljs-params">( QProgressBar *pProgressBar)</span>
+</span>&#123;
+    QVector&lt;STRU_Member&gt; *element;
+    QVector&lt;gNode&gt; *node;
+    QVector&lt;co&gt; *deform;
 
+    <span class="hljs-keyword">switch</span> (showType) &#123;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">if</span>(deformation!=<span class="hljs-literal">nullptr</span>)
+            deformation-&gt;<span class="hljs-built_in">openDeformation</span>(pProgressBar);
+        element = &amp;(deformation-&gt;element);
+        node = &amp;(deformation-&gt;allNode.node);
+        deform = &amp;(deformation-&gt;deformation);
+        <span class="hljs-keyword">if</span>(stress!=<span class="hljs-literal">nullptr</span>)
+            stress-&gt;<span class="hljs-built_in">openResult</span>(pProgressBar, element, node,
+                               deform);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">if</span>(deformation!=<span class="hljs-literal">nullptr</span>)
+            deformation-&gt;<span class="hljs-built_in">openDeformation</span>(pProgressBar);
+        element = &amp;(deformation-&gt;element);
+        node = &amp;(deformation-&gt;allNode.node);
+        deform = &amp;(deformation-&gt;deformation);
+        <span class="hljs-keyword">if</span>(strain!=<span class="hljs-literal">nullptr</span>)
+            strain-&gt;<span class="hljs-built_in">openResult</span>(pProgressBar, element, node,
+                               deform);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+        <span class="hljs-keyword">if</span>(deformation!=<span class="hljs-literal">nullptr</span>)
+            deformation-&gt;<span class="hljs-built_in">openDeformation</span>(pProgressBar);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+    &#125;
+    <span class="hljs-keyword">if</span>(myOpenGL==<span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span>;
+    myOpenGL-&gt;modelRange.<span class="hljs-built_in">enlarge</span>(deformation-&gt;modelRange,<span class="hljs-number">0.0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);
+    <span class="hljs-comment">/*myOpenGL-&gt;modelRange = deformation-&gt;modelRange;
+    myOpenGL-&gt;modelRange.x.min = deformation-&gt;modelRange.x.min-
+            (deformation-&gt;modelRange.x.max-deformation-&gt;modelRange.x.min)*0.2;
+    myOpenGL-&gt;modelRange.y.min = deformation-&gt;modelRange.y.min;*/</span>
+    myOpenGL-&gt;<span class="hljs-built_in">update</span>();
+    <span class="hljs-keyword">return</span>;
+&#125;
+</code></pre>
 <p>11.deformation-&gt;openDeformation(pProgressBar);</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Deformation::openDeformation</span><span class="params">(QProgressBar *pProgressBar)</span></span></span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">Deformation::openDeformation</span><span class="hljs-params">(QProgressBar *pProgressBar)</span>
+</span></code></pre>
 <p>12.stress-&gt;openResult(pProgressBar, element, node,deform);</p>
-<pre class="highlight"><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ResultStr::openResult</span><span class="params">(QProgressBar *pProgressBar,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;STRU_Member&gt; *element,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;gNode&gt; *node,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;co&gt; *deformation)</span></span></span><br></pre>
-
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">ResultStr::openResult</span><span class="hljs-params">(QProgressBar *pProgressBar,
+                           QVector&lt;STRU_Member&gt; *element,
+                           QVector&lt;gNode&gt; *node,
+                           QVector&lt;co&gt; *deformation)</span>
+</span></code></pre>
 
   </div>
   <div>
-    
-      <div 
-        class="post-note note-warning copyright" 
-        style="margin-top: 42px">
-        <p>
-          <span style="font-weight: bold;">作者：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="/about">
-            theme-kaze
-          </a>
-        </p>
-        <p>
-          <span style="font-weight: bold;">文章链接：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="http://example.com/2023/07/16/total%20stress/">
-            http://example.com/2023/07/16/total%20stress/
-          </a>
-        </p>
-        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
-      </div>
     
   </div>
 </article>
@@ -520,7 +611,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-07-15</div>
-        <a href="/2023/07/15/first/"><div class="recent-posts-item-content">first</div></a>
+        <a href="/2023/07/15/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
       </div>
     
   </div>
@@ -628,6 +719,9 @@
   <i class="iconfont icon-search button-icon"></i>
 </a> 
      
+     
+      
+ 
      
      
       <script>
