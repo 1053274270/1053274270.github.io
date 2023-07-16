@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>Hello World</title>
+  <title>total stress</title>
   
     
       <meta 
         property="og:title" 
-        content="Hello World">
+        content="total stress">
     
     
       <meta 
         property="og:url" 
-        content="http://example.com/2023/07/15/hello-world/index.html">
+        content="http://example.com/2023/07/16/total%20stress/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2023-07-15">
+        content="2023-07-16">
       <meta 
         property="og:article:modified_time" 
-        content="2023-07-15">
+        content="2023-07-16">
       <meta 
         property="og:article:author" 
         content="theme-kaze">
@@ -311,7 +311,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
       </div>
     </article>
   
@@ -352,21 +352,21 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Hello World
+      total stress
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2023-07-15T05:56:02.311Z">
+    <time datetime="2023-07-16T00:58:31.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2023-07-15</span>
+      <span>2023-07-16</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>75 字</span>
+      <span>618 字</span>
     
   </div>
   
@@ -374,19 +374,37 @@
   <div 
     id="section" 
     class="post-content">
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="highlight"><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre>
+    <p>1.修改结果路径，触发on_currentPatn_textChanged<br>void resultPanal::on_currentPatn_textChanged()</p>
+<p>2.getSteps(currentDir)中读取”&#x2F;STEP.dat”文件，获取totalStep与subStep，然后调用<br><strong>emit addAStep(totalStep, subStep, path);</strong></p>
+<p>3.<strong>void Model::addAResultStep(int totalStep, int subStep, QString path)</strong><br>此函数作用为，将每一步stress添加为左侧ControlPanel的TreeWidgetItem，将每一步stress添加至右侧结果栏。</p>
+<p>4.在ControlPanel类的构造函数中</p>
+<pre class="highlight"><span class="line"><span class="built_in">connect</span>(treeWidget,<span class="built_in">SIGNAL</span>(<span class="built_in">itemPressed</span>(QTreeWidgetItem*,<span class="type">int</span>)),<span class="keyword">this</span>,<span class="built_in">SLOT</span>(<span class="built_in">slotItemPressed</span>(QTreeWidgetItem*,<span class="type">int</span>)));</span><br></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="highlight"><span class="line">$ hexo server</span><br></pre>
+<p>初始化了左侧ControlPanel的TreeWidgetItem点击时间触发函数</p>
+<pre class="highlight"><span class="line"><span class="keyword">if</span>(item-&gt;<span class="built_in">text</span>(<span class="number">0</span>)==<span class="string">&quot;Stress&quot;</span>)&#123;</span><br><span class="line">        <span class="type">int</span> currentStep=item-&gt;<span class="built_in">parent</span>()-&gt;<span class="built_in">parent</span>()-&gt;<span class="built_in">indexOfChild</span>(item-&gt;<span class="built_in">parent</span>());</span><br><span class="line">        <span class="function">emit <span class="title">ShowStress</span><span class="params">(currentStep<span class="number">-1</span>)</span></span>;<span class="comment">//由于加了total应力，原来index应减1</span></span><br><span class="line">    &#125;```</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>信号槽传至下面函数</span><br><span class="line">```c++</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::ShowStresscontrolPanal</span><span class="params">(<span class="type">int</span> step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!ResultisReady) <span class="keyword">return</span>;</span><br><span class="line">    currentStep = step;</span><br><span class="line">    mystepResult[currentStep]-&gt;<span class="built_in">setShowStress</span>();</span><br><span class="line">    <span class="built_in">setStepTab</span>(mystepResult[currentStep]);</span><br><span class="line">&#125;</span><br></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="highlight"><span class="line">$ hexo generate</span><br></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="highlight"><span class="line">$ hexo deploy</span><br></pre>
+<p>6.setStepTab(mystepResult[currentStep]);</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::setStepTab</span><span class="params">(ResultStep *step)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> stepTabState = <span class="built_in">stepTabExisted</span>(step);</span><br><span class="line">    <span class="built_in">qDebug</span>()&lt;&lt;<span class="string">&quot;stepTabState:&quot;</span>&lt;&lt;stepTabState;</span><br><span class="line">    <span class="keyword">if</span>(stepTabState == <span class="number">-1</span>)&#123;</span><br><span class="line">        mystepResult[currentStep]-&gt;<span class="built_in">openOpenGL</span>();</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">addTab</span>(step-&gt;myOpenGL, step-&gt;name);</span><br><span class="line">        <span class="type">int</span> num_tab = CentralTabWidget-&gt;<span class="built_in">count</span>()<span class="number">-1</span>;</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">setCurrentIndex</span>(num_tab);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(CentralTabWidget-&gt;<span class="built_in">tabText</span>(CentralTabWidget-&gt;<span class="built_in">currentIndex</span>())!=</span><br><span class="line">             mystepResult[currentStep]-&gt;name)&#123;</span><br><span class="line">        CentralTabWidget-&gt;<span class="built_in">setCurrentIndex</span>(stepTabState);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">showResult</span>();  <span class="comment">//根据当前载荷步currentStep和mystepResult[currentStep]-&gt;showType显示结果</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>7.showResult();</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::showResult</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (mystepResult[currentStep]-&gt;showType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">showStress</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">showStrain</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="built_in">showDeformation</span>();</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>8.void Model::showStress()</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::showStress</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!ResultisReady) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!actionStress_Condition-&gt;<span class="built_in">isChecked</span>())&#123;</span><br><span class="line">        actionStress_Condition-&gt;<span class="built_in">setChecked</span>(<span class="literal">true</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">openResult</span>( pProgressBar);</span><br><span class="line">        myresultPanal-&gt;<span class="built_in">setResultTab</span>(<span class="number">1</span>,mystepResult[currentStep]-&gt;deformation-&gt;IFLAG_Dimension);</span><br><span class="line">        <span class="built_in">updateResultPanal</span>();            <span class="comment">//更新后处理控制面板</span></span><br><span class="line">        <span class="comment">//outputText(&quot;111111&quot;);</span></span><br><span class="line">        <span class="comment">//mystepResult[currentStep]-&gt;myOpenGL-&gt;update();</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>9.void Model::openResult( QProgressBar *pProgressBar)</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">Model::openResult</span><span class="params">( QProgressBar *pProgressBar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">0</span>&lt;=currentStep &amp;&amp; currentStep&lt;mystepResult.<span class="built_in">size</span>())&#123;</span><br><span class="line">        mystepResult[currentStep]-&gt;<span class="built_in">openResult</span>( pProgressBar);</span><br><span class="line">        <span class="keyword">if</span>(mystepResult[currentStep]-&gt;deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            myresultPanal-&gt;<span class="built_in">setModelRange</span>(</span><br><span class="line">                    mystepResult[currentStep]-&gt;deformation-&gt;modelRange);</span><br><span class="line">        ShowResult = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">ResetView</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>10.mystepResult[currentStep]-&gt;openResult( pProgressBar);</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">void</span> <span class="title">ResultStep::openResult</span><span class="params">( QProgressBar *pProgressBar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QVector&lt;STRU_Member&gt; *element;</span><br><span class="line">    QVector&lt;gNode&gt; *node;</span><br><span class="line">    QVector&lt;co&gt; *deform;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (showType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        element = &amp;(deformation-&gt;element);</span><br><span class="line">        node = &amp;(deformation-&gt;allNode.node);</span><br><span class="line">        deform = &amp;(deformation-&gt;deformation);</span><br><span class="line">        <span class="keyword">if</span>(stress!=<span class="literal">nullptr</span>)</span><br><span class="line">            stress-&gt;<span class="built_in">openResult</span>(pProgressBar, element, node,</span><br><span class="line">                               deform);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        element = &amp;(deformation-&gt;element);</span><br><span class="line">        node = &amp;(deformation-&gt;allNode.node);</span><br><span class="line">        deform = &amp;(deformation-&gt;deformation);</span><br><span class="line">        <span class="keyword">if</span>(strain!=<span class="literal">nullptr</span>)</span><br><span class="line">            strain-&gt;<span class="built_in">openResult</span>(pProgressBar, element, node,</span><br><span class="line">                               deform);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span>(deformation!=<span class="literal">nullptr</span>)</span><br><span class="line">            deformation-&gt;<span class="built_in">openDeformation</span>(pProgressBar);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(myOpenGL==<span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">    myOpenGL-&gt;modelRange.<span class="built_in">enlarge</span>(deformation-&gt;modelRange,<span class="number">0.0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="comment">/*myOpenGL-&gt;modelRange = deformation-&gt;modelRange;</span></span><br><span class="line"><span class="comment">    myOpenGL-&gt;modelRange.x.min = deformation-&gt;modelRange.x.min-</span></span><br><span class="line"><span class="comment">            (deformation-&gt;modelRange.x.max-deformation-&gt;modelRange.x.min)*0.2;</span></span><br><span class="line"><span class="comment">    myOpenGL-&gt;modelRange.y.min = deformation-&gt;modelRange.y.min;*/</span></span><br><span class="line">    myOpenGL-&gt;<span class="built_in">update</span>();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>11.deformation-&gt;openDeformation(pProgressBar);</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Deformation::openDeformation</span><span class="params">(QProgressBar *pProgressBar)</span></span></span><br></pre>
+
+<p>12.stress-&gt;openResult(pProgressBar, element, node,deform);</p>
+<pre class="highlight"><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ResultStr::openResult</span><span class="params">(QProgressBar *pProgressBar,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;STRU_Member&gt; *element,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;gNode&gt; *node,</span></span></span><br><span class="line"><span class="params"><span class="function">                           QVector&lt;co&gt; *deformation)</span></span></span><br></pre>
+
 
   </div>
   <div>
@@ -406,8 +424,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="http://example.com/2023/07/15/hello-world/">
-            http://example.com/2023/07/15/hello-world/
+            href="http://example.com/2023/07/16/total%20stress/">
+            http://example.com/2023/07/16/total%20stress/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -419,18 +437,32 @@
   
     <div class="nav-item-prev">
       <a 
-        href="/2023/07/15/first/" 
+        href="/2023/07/16/Voronoi%E7%89%88%E6%9C%AC/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
           <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">first </div>
+            <div class="nav-title">Voronoi版本 </div>
           
         </div>
       </a>
     </div>
   
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2023/07/15/liu/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">liu </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
   
 </div>
 
@@ -443,7 +475,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
 </div>
             </main>
             <aside class="right-column">
@@ -457,7 +489,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+
     </article>
   
   
